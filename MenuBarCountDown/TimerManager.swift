@@ -34,23 +34,23 @@ class TimerManager {
             guard let button = self.statusBarItem?.button else { return }
             
             self.timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
-                button.title = makeTimerStr(targetTime: targetTime, showTitle: showTitle)
+                button.title = self.makeTimerStr(targetTime: targetTime, showTitle: showTitle)
             }
         }
-        
-        func makeTimerStr(targetTime :Date, showTitle: String) -> String{
-            let now = Date()
-            let timeDifference = now.timeIntervalSince(targetTime)
-            let timeLeft = timeDifference > 0 ? timeDifference : -timeDifference
-            let hoursLeft = Int(timeLeft) / 3600
-            let minutesLeft = Int(timeLeft) / 60 % 60
-            let secondsLeft = Int(timeLeft) % 60
-            let millisecondsLeft = Int(timeLeft * 10) % 10
-            if timeDifference > 0 {
-                return String(format: "\(showTitle) から %02i h %02i m %02i.%01i s", hoursLeft, minutesLeft, secondsLeft, millisecondsLeft)
-            } else {
-                return String(format: "\(showTitle) まで %02i h %02i m %02i.%01i s", hoursLeft, minutesLeft, secondsLeft, millisecondsLeft)
-            }
+    }
+    
+    func makeTimerStr(targetTime :Date, showTitle: String) -> String{
+        let now = Date()
+        let timeDifference = now.timeIntervalSince(targetTime)
+        let timeLeft = timeDifference > 0 ? timeDifference : -timeDifference
+        let hoursLeft = Int(timeLeft) / 3600
+        let minutesLeft = Int(timeLeft) / 60 % 60
+        let secondsLeft = Int(timeLeft) % 60
+        let millisecondsLeft = Int(timeLeft * 10) % 10
+        if timeDifference > 0 {
+            return String(format: "\(showTitle) から %02i h %02i m %02i.%01i s", hoursLeft, minutesLeft, secondsLeft, millisecondsLeft)
+        } else {
+            return String(format: "\(showTitle) まで %02i h %02i m %02i.%01i s", hoursLeft, minutesLeft, secondsLeft, millisecondsLeft)
         }
     }
 }

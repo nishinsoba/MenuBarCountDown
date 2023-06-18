@@ -62,7 +62,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         } else {
             // ポップアップを表示
             self.popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
-            // 他の位置をタップすると消える
+            // 他の位置をクリックすると消える
             self.popover.contentViewController?.view.window?.makeKey()
         }
     }
