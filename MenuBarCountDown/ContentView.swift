@@ -10,8 +10,8 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing: 5) {
             Spacer().frame(height: 5)
-            
-            Text("Hello, world!")
+            let versionStr = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+            Text("ver \(versionStr) ☀️")
                 .fontWeight(.light)
             
             Divider()
