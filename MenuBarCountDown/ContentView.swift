@@ -7,12 +7,20 @@ import SwiftUI
 
 struct ContentView: View {
     var isOpenSetting = false
+    @State private var pleaseUpdateText = "Checking for updates..."
+    let versionStr = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
     var body: some View {
         VStack(spacing: 5) {
             Spacer().frame(height: 5)
-            let versionStr = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
-            Text("ver \(versionStr) ☀️")
+            
+            Text("Your version :  \(versionStr)☀️")
                 .fontWeight(.light)
+            
+            Divider()
+            
+            // JSONテキスト
+            Text(pleaseUpdateText).frame(height: 40)
+            
             
             Divider()
             
@@ -34,6 +42,32 @@ struct ContentView: View {
             }
             
             Spacer().frame(height: 5)
+        }
+        .onAppear{
+            // HTTP GETリクエスト
+            let url = URL(string: "https://raw.githubusercontent.com/nishinsoba/MenuBarCountDown/main/MenuBarCountDown/version.json")!
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data {
+                    // JSONデータの処理
+                    if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        if let latestVersion = json["version"] as? String {
+                            DispatchQueue.main.async {
+                                if latestVersion > versionStr{
+                                    // アップデート通知
+                                    pleaseUpdateText = "Please update!\nA new version ✨\(latestVersion)✨ is available."
+                                }else{
+                                    // アップデート不要
+                                    pleaseUpdateText = "Your version is already the latest.\nHave a nice day!"
+                                }
+                            }
+                        }
+                        
+                    }
+                } else if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
+            task.resume()
         }
     }
 }
