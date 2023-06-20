@@ -26,7 +26,7 @@ class TimerManager {
         // 予定名を隠す設定になっているかチェック
         let isShowTitle = UserDefaults.standard.bool(forKey: "isShowTitle")
         if(!isShowTitle){
-            showTitle = "次の予定"
+            showTitle = "予定"
         }
         print("timerStart \(showTitle), \(targetTime)")
         
