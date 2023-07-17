@@ -93,11 +93,14 @@ class CalendarManager {
         // 予定がなければ定時までカウントダウンする
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month, .day], from: Date())
-        let onTime = calendar.date(bySettingHour: 19, minute: 0, second: 0, of: calendar.date(from: components)!)!
+        let defaultQuittingTime = calendar.date(bySettingHour: 19, minute: 0, second: 0, of: calendar.date(from: components)!)!
+
+        let userDefaults = UserDefaults.standard
+        let quittingTime = userDefaults.object(forKey: "quittingTime") as? Date ?? defaultQuittingTime
         // 定時のEKEventオブジェクト作成
         let event = EKEvent(eventStore: eventStore)
         event.title = "定時"
-        event.startDate = onTime
+        event.startDate = quittingTime
         return event
         
     }
