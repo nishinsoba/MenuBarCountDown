@@ -95,12 +95,17 @@ class CalendarManager {
         let components = calendar.dateComponents([.year, .month, .day], from: Date())
         let defaultQuittingTime = calendar.date(bySettingHour: 19, minute: 0, second: 0, of: calendar.date(from: components)!)!
 
+        // ユーザ設定で保存されている定時の時刻を読み取る
         let userDefaults = UserDefaults.standard
-        let quittingTime = userDefaults.object(forKey: "quittingTime") as? Date ?? defaultQuittingTime
+        let quittingTime = userDefaults.object(forKey: "quittingTime") as? Date
+        
+        let hour = calendar.component(.hour, from: quittingTime ?? defaultQuittingTime)
+        let minute = calendar.component(.minute, from: quittingTime ?? defaultQuittingTime)
+        let todaysQuitting = calendar.date(bySettingHour: hour, minute: minute, second: 0, of: Date())
         // 定時のEKEventオブジェクト作成
         let event = EKEvent(eventStore: eventStore)
         event.title = "定時"
-        event.startDate = quittingTime
+        event.startDate = todaysQuitting
         return event
         
     }
