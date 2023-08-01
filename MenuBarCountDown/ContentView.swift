@@ -28,14 +28,21 @@ struct ContentView: View {
             
             Divider()
             
-            Text("Your version :  \(versionStr)☀️")
-                .fontWeight(.light)
-            
-            Divider()
-            
-            // JSONテキスト
-            Text(pleaseUpdateText).frame(height: 40)
-            
+            Group {
+                Text("Your version :  \(versionStr)☀️")
+                    .fontWeight(.light)
+                
+                Divider()
+                
+                // JSONテキスト
+                Text(pleaseUpdateText).frame(height: 40)
+                
+                
+                Divider()
+                
+                // リリースページ
+                Text("[MenuBarCountDown releases page](https://github.com/nishinsoba/MenuBarCountDown/releases)")
+            }
             
             Divider()
             
@@ -45,18 +52,22 @@ struct ContentView: View {
                     NSApp.sendAction(Selector(("showPreferencesWindow:")), to: nil, from: nil)
                     NSApp.windows.forEach { if ($0.canBecomeMain) {$0.orderFrontRegardless() } }
                 }) {
-                    Text(NSLocalizedString("Preferences…", comment: "設定画面"))
+                    Text("Preferences…")
                 }
                 .buttonStyle(DefaultButtonStyle())
                 
                 // アプリケーション終了
                 Button(action: {NSApp.terminate(self)}) {
-                    Text(NSLocalizedString("Quit", comment: "終了"))
+                    Text("Quit")
                 }
                 .buttonStyle(DefaultButtonStyle())
+                
             }
             
+            Divider()
+            
             Spacer().frame(height: 5)
+            
         }
         .frame(width: 300)
         .onAppear{

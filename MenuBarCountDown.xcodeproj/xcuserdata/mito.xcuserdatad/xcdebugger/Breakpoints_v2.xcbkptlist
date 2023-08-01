@@ -14,8 +14,8 @@
             filePath = "MenuBarCountDown/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "contentAppear()"
             landmarkType = "7">
          </BreakpointContent>
@@ -34,6 +34,102 @@
             endingLineNumber = "77"
             landmarkName = "getCalendarData()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C778CF40-6E21-48AE-B722-2DD85EAC64A2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MenuBarCountDown/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "contentAppear()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C778CF40-6E21-48AE-B722-2DD85EAC64A2 - 496d97b37721c10b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MenuBarCountDown.ContentView.contentAppear() -&gt; ()"
+                  moduleName = "MenuBarCountDown"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mito/MenuBarCountDown/MenuBarCountDown/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "1128">
+               </Location>
+               <Location
+                  uuid = "C778CF40-6E21-48AE-B722-2DD85EAC64A2 - bb4346059a9a5757"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MenuBarCountDown.ContentView.contentAppear() -&gt; ()"
+                  moduleName = "MenuBarCountDown"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mito/MenuBarCountDown/MenuBarCountDown/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "80"
+                  endingLineNumber = "80"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C7D235F8-43EA-4574-BD5D-4F3E6A89F072"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MenuBarCountDown/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "contentAppear()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C7D235F8-43EA-4574-BD5D-4F3E6A89F072 - 496d97b37721c168"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MenuBarCountDown.ContentView.contentAppear() -&gt; ()"
+                  moduleName = "MenuBarCountDown"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mito/MenuBarCountDown/MenuBarCountDown/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "836">
+               </Location>
+               <Location
+                  uuid = "C7D235F8-43EA-4574-BD5D-4F3E6A89F072 - 496d97b37721c168"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in MenuBarCountDown.ContentView.contentAppear() -&gt; ()"
+                  moduleName = "MenuBarCountDown"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mito/MenuBarCountDown/MenuBarCountDown/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "1092">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
