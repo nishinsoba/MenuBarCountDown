@@ -67,6 +67,7 @@ struct ContentView: View {
     
     // onAppear時に行いたい処理をまとめたもの
     func contentAppear(){
+        print("contentAppear")
         // 最新バージョンチェック
         // HTTP GETリクエスト
         let url = URL(string: "https://raw.githubusercontent.com/nishinsoba/MenuBarCountDown/main/MenuBarCountDown/version.json")!
@@ -116,14 +117,15 @@ struct ContentView: View {
         let events = CalendarManager.shared.getCalendarData()
         eventCountDowns = []
         events.forEach { event in
-            eventCountDowns.append(TimerManager.shared.makeTimerStr(targetTime: event.startDate, showTitle: event.title, pattern: pattern))
+                // 表示用文字列を作成して一旦eventCountDownsに詰める
+                eventCountDowns.append(TimerManager.shared.makeTimerStr(targetTime: event.startDate, showTitle: event.title, pattern: pattern))
         }
-        
         // 表示用文字列をリアルタイムに更新する
         ContentView.timer.invalidate()
         DispatchQueue.main.async {
             ContentView.timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { _ in
                 events.enumerated().forEach{ index, event in
+                    // eventCountDownsの中身を更新する
                     eventCountDowns[index] = TimerManager.shared.makeTimerStr(targetTime: event.startDate, showTitle: event.title, pattern: pattern)
                 }
             }
