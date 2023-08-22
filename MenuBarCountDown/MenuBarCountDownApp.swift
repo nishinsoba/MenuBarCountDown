@@ -12,7 +12,7 @@ struct MenuBarCountDownApp: App {
     
     var body: some Scene {
         Settings{
-            SettingView()
+            PreferencesView()
         }
     }
 }

@@ -11,7 +11,9 @@ struct ContentView: View {
     @State private var pleaseUpdateText = "Checking for updates..."
     let versionStr = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
     @State private var eventCountDowns: [String] = []
-    
+    @State var preferencesWindow:NSWindow?
+    @State var preferencesWindowCont:NSWindowController?
+    let preferencesView = PreferencesView()
     static var timer:Timer = Timer()
     
     
@@ -49,8 +51,8 @@ struct ContentView: View {
             HStack(spacing: 10){
                 // 設定画面を開く
                 Button(action: {
-                    NSApp.sendAction(Selector(("showPreferencesWindow:")), to: nil, from: nil)
-                    NSApp.windows.forEach { if ($0.canBecomeMain) {$0.orderFrontRegardless() } }
+                    NSApplication.shared.activate(ignoringOtherApps: true)
+                    self.showPreferencesWindow()
                 }) {
                     Text("Preferences…")
                 }
@@ -149,6 +151,25 @@ struct ContentView: View {
             Timer.scheduledTimer(withTimeInterval: 300, repeats: true) { _ in
                 contentAppear()
             }
+        }
+    }
+    
+    func showPreferencesWindow(){
+        if let window = self.preferencesWindow, let windowCont = self.preferencesWindowCont {
+            // すでに設定画面が存在するならアクティブにする
+            NSApplication.shared.activate(ignoringOtherApps: true)
+            window.makeKeyAndOrderFront(nil)
+        } else {
+            // 存在していなければ生成して表示する
+            self.preferencesWindow = NSWindow(contentRect: NSMakeRect(0, 0, 480, 300),styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView], backing: NSWindow.BackingStoreType.buffered, defer: false)
+            self.preferencesWindow!.title = "preferences"
+            self.preferencesWindow!.isOpaque = false
+            self.preferencesWindow!.center()
+            self.preferencesWindow!.contentView = NSHostingView(rootView: self.preferencesView)
+            self.preferencesWindow!.isMovableByWindowBackground = true
+            self.preferencesWindow!.makeKeyAndOrderFront(nil)
+            
+            self.preferencesWindowCont = NSWindowController(window:self.preferencesWindow)
         }
     }
 }
