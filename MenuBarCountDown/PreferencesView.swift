@@ -1,11 +1,11 @@
 //
-//  SettingView.swift
+//  PreferencesView.swift
 //  MenuBarCountDown
 //
 
 import SwiftUI
 
-struct SettingView: View {
+struct PreferencesView: View {
     // プロパティ(UserDefaultsに保持)
     @AppStorage("isShowTitle") private var isShowTitle = true
     @AppStorage("timeUnit") private var timeUnit = "0.1s"
@@ -71,6 +71,6 @@ struct SettingView: View {
 
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingView()
+        PreferencesView()
     }
 }
